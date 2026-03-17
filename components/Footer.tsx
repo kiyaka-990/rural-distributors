@@ -1,10 +1,7 @@
 import Link from 'next/link';
 import { COMPANY } from '@/lib/data';
 import { Mail, Phone, MapPin } from 'lucide-react';
-<<<<<<< HEAD
 import RdeLogo from './RdeLogo';
-=======
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
 
 export default function Footer() {
   return (
@@ -17,16 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-<<<<<<< HEAD
               <RdeLogo size={48} />
-=======
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center text-xl border-2"
-                style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', borderColor: '#22883f' }}
-              >
-                ⚓
-              </div>
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
               <div>
                 <div className="font-bebas text-xl tracking-[2px]" style={{ color: '#e8c96a' }}>
                   Rural Distributors Enterprises
@@ -114,7 +102,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
           </p>
           <p className="text-xs text-dim">
-            Incorporated in Kenya under the Company Act Laws of Kenya · Est. {COMPANY.founded}
+            Designed by Asterleigh Systems {COMPANY.founded}
           </p>
         </div>
       </div>

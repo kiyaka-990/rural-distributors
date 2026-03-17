@@ -4,11 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-<<<<<<< HEAD
 import RdeLogo from './RdeLogo';
-=======
-import { COMPANY } from '@/lib/data';
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
 
 const links = [
   { href: '/', label: 'Home' },
@@ -38,13 +34,11 @@ export default function Navbar() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
-<<<<<<< HEAD
 
-        {/* ── Logo ── */}
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          {/* SVG logo with hover glow ring */}
           <div
-            className="relative flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+            className="relative flex-shrink-0"
             style={{
               filter: 'drop-shadow(0 0 0px rgba(26,107,60,0))',
               transition: 'filter 0.3s ease, transform 0.3s ease',
@@ -52,36 +46,21 @@ export default function Navbar() {
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLDivElement).style.filter =
                 'drop-shadow(0 0 8px rgba(34,136,63,0.7))';
+              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.1)';
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLDivElement).style.filter =
                 'drop-shadow(0 0 0px rgba(26,107,60,0))';
+              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
             }}
           >
             <RdeLogo size={46} />
           </div>
-
-          {/* Wordmark */}
           <div className="leading-tight">
             <span
-              className="font-bebas text-lg tracking-[2px] block transition-colors duration-200"
+              className="font-bebas text-lg tracking-[2px] block"
               style={{ color: '#e8c96a' }}
             >
-=======
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div
-            className="w-11 h-11 rounded-full flex items-center justify-center text-xl border-2 transition-all duration-300 group-hover:scale-110"
-            style={{
-              background: 'linear-gradient(135deg, #1a6b3c, #152547)',
-              borderColor: '#22883f',
-            }}
-          >
-            ⚓
-          </div>
-          <div className="leading-tight">
-            <span className="font-bebas text-lg tracking-[2px] block" style={{ color: '#e8c96a' }}>
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
               Rural Distributors
             </span>
             <span className="text-[10px] text-white/50 tracking-widest uppercase">
@@ -90,11 +69,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-<<<<<<< HEAD
-        {/* ── Desktop nav links ── */}
-=======
         {/* Desktop links */}
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <li key={l.href}>
@@ -108,8 +83,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-<<<<<<< HEAD
-        {/* ── CTA ── */}
+        {/* CTA */}
         <Link
           href="/contact"
           className="hidden md:block btn-primary text-sm py-2.5 px-6"
@@ -117,15 +91,7 @@ export default function Navbar() {
           Get Quote
         </Link>
 
-        {/* ── Mobile toggle ── */}
-=======
-        {/* CTA */}
-        <Link href="/contact" className="hidden md:block btn-primary text-sm py-2.5 px-6">
-          Get Quote
-        </Link>
-
         {/* Mobile toggle */}
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
         <button
           className="md:hidden text-white p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -135,11 +101,7 @@ export default function Navbar() {
         </button>
       </div>
 
-<<<<<<< HEAD
-      {/* ── Mobile menu ── */}
-=======
       {/* Mobile menu */}
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
       {mobileOpen && (
         <div
           className="md:hidden border-t border-glass px-6 py-4 flex flex-col gap-4"
@@ -149,27 +111,19 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-<<<<<<< HEAD
               className={`nav-link text-base py-1 ${
                 pathname === l.href ? 'active text-white' : ''
               }`}
-=======
-              className={`nav-link text-base py-1 ${pathname === l.href ? 'active text-white' : ''}`}
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
               onClick={() => setMobileOpen(false)}
             >
               {l.label}
             </Link>
           ))}
-<<<<<<< HEAD
           <Link
             href="/contact"
             className="btn-primary text-sm text-center mt-2"
             onClick={() => setMobileOpen(false)}
           >
-=======
-          <Link href="/contact" className="btn-primary text-sm text-center mt-2" onClick={() => setMobileOpen(false)}>
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
             Get Quote
           </Link>
         </div>
