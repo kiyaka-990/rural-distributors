@@ -19,7 +19,18 @@ const timeline = [
   { year: '2024', event: 'Regional expansion into East & Central Africa initiated' },
 ];
 
-const orgChart = [
+interface OrgNode {
+  label: string;
+  highlight?: string;
+  dim?: boolean;
+}
+
+interface OrgLevel {
+  level: number;
+  nodes: OrgNode[];
+}
+
+const orgChart: OrgLevel[] = [
   { level: 0, nodes: [{ label: 'Managing Director', highlight: 'gold' }] },
   { level: 1, nodes: [{ label: 'Financial Director', highlight: 'gold' }, { label: 'COO', highlight: 'green' }] },
   { level: 2, nodes: [{ label: 'Admin' }, { label: 'Financial Controller' }, { label: 'Engineers' }, { label: 'Project Managers' }] },
