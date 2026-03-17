@@ -3,7 +3,10 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { X, Send, MessageCircle, Minimize2, Phone, Mail, Sparkles } from 'lucide-react';
 import { BOT_RESPONSES } from '@/lib/data';
+<<<<<<< HEAD
 import RdeLogo from './RdeLogo';
+=======
+>>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
 
 interface Message {
   id: number;
@@ -228,10 +231,17 @@ export default function Chatbot() {
             {/* Avatar with pulse ring */}
             <div className="relative flex-shrink-0">
               <div
+<<<<<<< HEAD
                 className="w-11 h-11 rounded-full flex items-center justify-center border-2 overflow-hidden"
                 style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', borderColor: '#22883f', boxShadow: '0 0 16px rgba(26,107,60,0.4)' }}
               >
                 <RdeLogo size={36} />
+=======
+                className="w-11 h-11 rounded-full flex items-center justify-center border-2 text-lg"
+                style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', borderColor: '#22883f', boxShadow: '0 0 16px rgba(26,107,60,0.4)' }}
+              >
+                ⚓
+>>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
               </div>
               <div
                 className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center"
@@ -293,9 +303,15 @@ export default function Chatbot() {
                   >
                     {/* Bot avatar */}
                     {msg.isBot && (
+<<<<<<< HEAD
                       <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
                         style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', border: '1px solid rgba(34,136,63,0.4)' }}>
                         <RdeLogo size={24} />
+=======
+                      <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-sm"
+                        style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', border: '1px solid rgba(34,136,63,0.4)' }}>
+                        ⚓
+>>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
                       </div>
                     )}
                     <div className="flex flex-col max-w-[82%]" style={{ alignItems: msg.isBot ? 'flex-start' : 'flex-end' }}>
@@ -343,9 +359,15 @@ export default function Chatbot() {
                 {/* Typing indicator */}
                 {typing && (
                   <div className="flex items-end gap-2.5" style={{ animation: 'msgIn 0.3s ease both' }}>
+<<<<<<< HEAD
                     <div className="w-7 h-7 rounded-full flex items-center justify-center text-sm flex-shrink-0 overflow-hidden"
                       style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', border: '1px solid rgba(34,136,63,0.4)' }}>
                       <RdeLogo size={24} />
+=======
+                    <div className="w-7 h-7 rounded-full flex items-center justify-center text-sm flex-shrink-0"
+                      style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', border: '1px solid rgba(34,136,63,0.4)' }}>
+                      ⚓
+>>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
                     </div>
                     <div className="px-4 py-3 rounded-[18px] rounded-bl-[4px]"
                       style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.07)' }}>

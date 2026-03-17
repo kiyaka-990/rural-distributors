@@ -5,7 +5,10 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
 import Reveal from '@/components/Reveal';
+<<<<<<< HEAD
 import RdeLogo from '@/components/RdeLogo';
+=======
+>>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
 import { COMPANY } from '@/lib/data';
 import { Phone, Mail, MapPin, Clock, CheckCircle, Send } from 'lucide-react';
 
@@ -266,10 +269,17 @@ export default function Contact() {
                 <div className="glass rounded-2xl p-5">
                   <div className="flex items-center gap-3 mb-3">
                     <div
+<<<<<<< HEAD
                       className="w-12 h-12 rounded-full flex items-center justify-center border-2 flex-shrink-0 overflow-hidden"
                       style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', borderColor: '#22883f' }}
                     >
                       <RdeLogo size={40} />
+=======
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-xl border-2 flex-shrink-0"
+                      style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', borderColor: '#22883f' }}
+                    >
+                      ⚓
+>>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
                     </div>
                     <div>
                       <div className="font-semibold text-sm">Rural Distributors Enterprises</div>
