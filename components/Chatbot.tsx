@@ -3,10 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { X, Send, MessageCircle, Minimize2, Phone, Mail, Sparkles } from 'lucide-react';
 import { BOT_RESPONSES } from '@/lib/data';
-<<<<<<< HEAD
 import RdeLogo from './RdeLogo';
-=======
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
 
 interface Message {
   id: number;
@@ -109,7 +106,6 @@ export default function Chatbot() {
       setUnread(0);
       setShowNotif(false);
 
-      // Staggered welcome messages
       setTimeout(() => setTyping(true), 300);
       setTimeout(() => {
         setTyping(false);
@@ -157,7 +153,6 @@ export default function Chatbot() {
         isBot: true,
         time: getTimeString(),
       }]);
-      // Show quick actions again after every 2nd bot message
       setMessages(prev => {
         const botCount = prev.filter(m => m.isBot).length;
         if (botCount % 3 === 0) setShowQuickActions(true);
@@ -184,7 +179,7 @@ export default function Chatbot() {
       {/* Proactive notification bubble */}
       {showNotif && !open && (
         <div
-          className="max-w-[220px] rounded-2xl rounded-br-sm px-4 py-3 text-sm border cursor-pointer shadow-xl"
+          className="relative max-w-[220px] rounded-2xl rounded-br-sm px-4 py-3 text-sm border cursor-pointer shadow-xl"
           style={{
             background: 'rgba(13,27,62,0.97)',
             backdropFilter: 'blur(20px)',
@@ -225,23 +220,23 @@ export default function Chatbot() {
           {/* Header */}
           <div
             className="flex items-center gap-3 p-4 flex-shrink-0 cursor-pointer"
-            style={{ background: 'linear-gradient(135deg, rgba(26,107,60,0.3), rgba(13,27,62,0.6))', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+            style={{
+              background: 'linear-gradient(135deg, rgba(26,107,60,0.3), rgba(13,27,62,0.6))',
+              borderBottom: '1px solid rgba(255,255,255,0.06)',
+            }}
             onClick={() => setMinimized(!minimized)}
           >
-            {/* Avatar with pulse ring */}
+            {/* Avatar */}
             <div className="relative flex-shrink-0">
               <div
-<<<<<<< HEAD
                 className="w-11 h-11 rounded-full flex items-center justify-center border-2 overflow-hidden"
-                style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', borderColor: '#22883f', boxShadow: '0 0 16px rgba(26,107,60,0.4)' }}
+                style={{
+                  background: 'linear-gradient(135deg, #1a6b3c, #152547)',
+                  borderColor: '#22883f',
+                  boxShadow: '0 0 16px rgba(26,107,60,0.4)',
+                }}
               >
                 <RdeLogo size={36} />
-=======
-                className="w-11 h-11 rounded-full flex items-center justify-center border-2 text-lg"
-                style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', borderColor: '#22883f', boxShadow: '0 0 16px rgba(26,107,60,0.4)' }}
-              >
-                ⚓
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
               </div>
               <div
                 className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center"
@@ -250,39 +245,54 @@ export default function Chatbot() {
                 <Sparkles size={7} color="white" />
               </div>
             </div>
+
             <div className="flex-1 min-w-0">
               <div className="font-semibold text-sm flex items-center gap-2">
                 Rafiki
-                <span className="text-[10px] px-2 py-0.5 rounded-full font-medium" style={{ background: 'rgba(26,107,60,0.25)', color: '#22883f' }}>AI</span>
+                <span
+                  className="text-[10px] px-2 py-0.5 rounded-full font-medium"
+                  style={{ background: 'rgba(26,107,60,0.25)', color: '#22883f' }}
+                >
+                  AI
+                </span>
               </div>
               <div className="text-xs flex items-center gap-1.5 mt-0.5" style={{ color: 'rgba(240,244,255,0.5)' }}>
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#22883f', boxShadow: '0 0 5px #22883f' }} />
                 RDE Virtual Assistant · Online
               </div>
             </div>
+
             <div className="flex items-center gap-1">
-              <a href="tel:+254722313131"
+              <a
+                href="tel:+254722313131"
                 onClick={(e) => e.stopPropagation()}
                 className="w-8 h-8 rounded-full flex items-center justify-center border transition-all hover:bg-green-pale hover:border-green-light/40"
                 style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
-                title="Call us">
+                title="Call us"
+              >
                 <Phone size={13} />
               </a>
-              <a href="mailto:ruraldist22@gmail.com"
+              <a
+                href="mailto:ruraldist22@gmail.com"
                 onClick={(e) => e.stopPropagation()}
                 className="w-8 h-8 rounded-full flex items-center justify-center border transition-all hover:bg-green-pale hover:border-green-light/40"
                 style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
-                title="Email us">
+                title="Email us"
+              >
                 <Mail size={13} />
               </a>
-              <button onClick={(e) => { e.stopPropagation(); setMinimized(!minimized); }}
+              <button
+                onClick={(e) => { e.stopPropagation(); setMinimized(!minimized); }}
                 className="w-8 h-8 rounded-full flex items-center justify-center border transition-all hover:bg-green-pale"
-                style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}>
+                style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
+              >
                 <Minimize2 size={13} />
               </button>
-              <button onClick={(e) => { e.stopPropagation(); setOpen(false); }}
+              <button
+                onClick={(e) => { e.stopPropagation(); setOpen(false); }}
                 className="w-8 h-8 rounded-full flex items-center justify-center border transition-all hover:bg-red-500/20 hover:border-red-400/30"
-                style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}>
+                style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
+              >
                 <X size={13} />
               </button>
             </div>
@@ -303,17 +313,17 @@ export default function Chatbot() {
                   >
                     {/* Bot avatar */}
                     {msg.isBot && (
-<<<<<<< HEAD
-                      <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
-                        style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', border: '1px solid rgba(34,136,63,0.4)' }}>
+                      <div
+                        className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
+                        style={{
+                          background: 'linear-gradient(135deg, #1a6b3c, #152547)',
+                          border: '1px solid rgba(34,136,63,0.4)',
+                        }}
+                      >
                         <RdeLogo size={24} />
-=======
-                      <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-sm"
-                        style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', border: '1px solid rgba(34,136,63,0.4)' }}>
-                        ⚓
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
                       </div>
                     )}
+
                     <div className="flex flex-col max-w-[82%]" style={{ alignItems: msg.isBot ? 'flex-start' : 'flex-end' }}>
                       <div
                         className="px-4 py-2.5 text-sm leading-relaxed relative group"
@@ -342,11 +352,19 @@ export default function Chatbot() {
                       {reactionPickerFor === msg.id && (
                         <div
                           className="flex gap-1 px-2 py-1.5 rounded-full border mt-1"
-                          style={{ background: 'rgba(13,27,62,0.95)', backdropFilter: 'blur(20px)', borderColor: 'rgba(255,255,255,0.1)', animation: 'reactionIn 0.2s ease both' }}
+                          style={{
+                            background: 'rgba(13,27,62,0.95)',
+                            backdropFilter: 'blur(20px)',
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            animation: 'reactionIn 0.2s ease both',
+                          }}
                         >
                           {EMOJI_REACTIONS.map(e => (
-                            <button key={e} onClick={() => handleReaction(msg.id, e)}
-                              className="text-base hover:scale-125 transition-transform px-0.5">
+                            <button
+                              key={e}
+                              onClick={() => handleReaction(msg.id, e)}
+                              className="text-base hover:scale-125 transition-transform px-0.5"
+                            >
                               {e}
                             </button>
                           ))}
@@ -359,22 +377,26 @@ export default function Chatbot() {
                 {/* Typing indicator */}
                 {typing && (
                   <div className="flex items-end gap-2.5" style={{ animation: 'msgIn 0.3s ease both' }}>
-<<<<<<< HEAD
-                    <div className="w-7 h-7 rounded-full flex items-center justify-center text-sm flex-shrink-0 overflow-hidden"
-                      style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', border: '1px solid rgba(34,136,63,0.4)' }}>
+                    <div
+                      className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
+                      style={{
+                        background: 'linear-gradient(135deg, #1a6b3c, #152547)',
+                        border: '1px solid rgba(34,136,63,0.4)',
+                      }}
+                    >
                       <RdeLogo size={24} />
-=======
-                    <div className="w-7 h-7 rounded-full flex items-center justify-center text-sm flex-shrink-0"
-                      style={{ background: 'linear-gradient(135deg, #1a6b3c, #152547)', border: '1px solid rgba(34,136,63,0.4)' }}>
-                      ⚓
->>>>>>> a92fe5222e4986f316aaaf2bca94fb310263dca6
                     </div>
-                    <div className="px-4 py-3 rounded-[18px] rounded-bl-[4px]"
-                      style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                    <div
+                      className="px-4 py-3 rounded-[18px] rounded-bl-[4px]"
+                      style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.07)' }}
+                    >
                       <div className="flex gap-1.5 items-center h-4">
                         {[0, 1, 2].map(i => (
-                          <div key={i} className="w-1.5 h-1.5 rounded-full"
-                            style={{ background: '#22883f', animation: `typingBounce 1.2s ${i * 0.2}s ease-in-out infinite` }} />
+                          <div
+                            key={i}
+                            className="w-1.5 h-1.5 rounded-full"
+                            style={{ background: '#22883f', animation: `typingBounce 1.2s ${i * 0.2}s ease-in-out infinite` }}
+                          />
                         ))}
                       </div>
                     </div>
@@ -398,8 +420,14 @@ export default function Chatbot() {
                             borderColor: 'rgba(26,107,60,0.25)',
                             color: 'rgba(240,244,255,0.8)',
                           }}
-                          onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(26,107,60,0.25)'; (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(34,136,63,0.5)'; }}
-                          onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(26,107,60,0.12)'; (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(26,107,60,0.25)'; }}
+                          onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLButtonElement).style.background = 'rgba(26,107,60,0.25)';
+                            (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(34,136,63,0.5)';
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLButtonElement).style.background = 'rgba(26,107,60,0.12)';
+                            (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(26,107,60,0.25)';
+                          }}
                         >
                           <span className="text-base leading-none">{a.icon}</span>
                           <span className="leading-tight">{a.label}</span>
@@ -426,14 +454,23 @@ export default function Chatbot() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-                    onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = 'rgba(34,136,63,0.5)'; (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px rgba(26,107,60,0.12)'; }}
-                    onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = 'rgba(255,255,255,0.08)'; (e.target as HTMLInputElement).style.boxShadow = 'none'; }}
+                    onFocus={(e) => {
+                      (e.target as HTMLInputElement).style.borderColor = 'rgba(34,136,63,0.5)';
+                      (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px rgba(26,107,60,0.12)';
+                    }}
+                    onBlur={(e) => {
+                      (e.target as HTMLInputElement).style.borderColor = 'rgba(255,255,255,0.08)';
+                      (e.target as HTMLInputElement).style.boxShadow = 'none';
+                    }}
                   />
                   <button
                     onClick={() => sendMessage()}
                     disabled={!input.trim()}
                     className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 disabled:opacity-40"
-                    style={{ background: 'linear-gradient(135deg, #1a6b3c, #22883f)', boxShadow: input.trim() ? '0 4px 15px rgba(26,107,60,0.5)' : 'none' }}
+                    style={{
+                      background: 'linear-gradient(135deg, #1a6b3c, #22883f)',
+                      boxShadow: input.trim() ? '0 4px 15px rgba(26,107,60,0.5)' : 'none',
+                    }}
                     onMouseEnter={(e) => { if (input.trim()) (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.1)'; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = ''; }}
                   >
@@ -467,7 +504,6 @@ export default function Chatbot() {
         <div style={{ transition: 'transform 0.3s, opacity 0.3s', transform: open ? 'rotate(90deg)' : 'rotate(0deg)' }}>
           {open ? <X size={22} /> : <MessageCircle size={22} />}
         </div>
-        {/* Unread badge */}
         {!open && unread > 0 && (
           <div
             className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
