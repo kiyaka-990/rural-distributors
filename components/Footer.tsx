@@ -102,7 +102,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
           </p>
           <p className="text-xs text-dim">
-            Incorporated in Kenya under the Company Act Laws of Kenya · Est. {COMPANY.founded}
+           Developed by Asterleigh Systems {COMPANY.founded}
           </p>
         </div>
       </div>
